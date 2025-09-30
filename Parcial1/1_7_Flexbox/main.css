@@ -1,0 +1,44 @@
+*{
+  font-family: 'Open Sans','Roboto',Arial, Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header{
+    height:10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+div{
+    text-align: center;
+    align-content: center;
+    border: 3px solid rgb(0, 47, 255);
+    width: 25vw;  
+    height: 10vh;
+    flex-grow: 10px;
+}
+.opcionMenu{
+  background-color: rgb(177, 213, 218);
+  color: darkblue;
+}
+#btnInicio{
+  border-radius: 45px 0px 0px 45px;
+}
+#btnInventario{
+  border-radius: 0px 45px 45px 0px;
+}
+.opcionMenu:hover{
+  border-color: black;
+  background-color: aqua;
+  color: black;
+  cursor:pointer;
+  box-shadow: 0px 0px 15px 0px black;
+}
+.opcionMenu:active{
+  border-color: yellow;
+}
