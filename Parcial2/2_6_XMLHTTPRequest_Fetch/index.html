@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHTTPRequest</title>
+</head>
+<body>
+    <button id="btnPeticion" onclick="cargarDatosXML()">Enviar Peticion con XML</button>
+    <button id="btnPeticionFetch" onclick="cargarDatosFetch()">Enviar Peticion con Fetch</button>
+    <div id="Respuesta"></div>
+    
+    <script>
+        function cargarDatosXML(){
+            let peticion = new XMLHttpRequest();
+            peticion.onload=function(){
+                console.log(peticion.response);
+                objetoJS = JSON.parse(peticion.response)
+                console.log(objetoJS)
+                document.getElementById("Respuesta").innerHTML=peticion.response
+            }
+
+            peticion.open("GET","https://api.openweathermap.org/data/2.5/weather?q=Mexico&appid=9a8110f3f0d700158ba53ff980c224e1&units=metric",true);
+            peticion.send();
+        }
+
+        function cargarDatosFetch(){
+            fetch('https://api.openweathermap.org/data/2.5/weather?q=Mexico&appid=9a8110f3f0d700158ba53ff980c224e1&units=metric')
+            .then(response => response.json())
+            
+            .then(data => console.log("Peticion con Fetch", data));
+        }
+    </script>
+</body>
+</html>
