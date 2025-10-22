@@ -8,6 +8,7 @@
 <body>
     <button id="btnPeticion" onclick="cargarDatosXML()">Enviar Peticion con XML</button>
     <button id="btnPeticionFetch" onclick="cargarDatosFetch()">Enviar Peticion con Fetch</button>
+    <button id="btnPeticionFetch" onclick="cargarDatosFetchAsync()">Enviar Peticion con Fetch con Async-Await</button>
     <div id="Respuesta"></div>
     
     <script>
@@ -30,6 +31,15 @@
             
             .then(data => console.log("Peticion con Fetch", data));
         }
+        
+        async function cargarDatosFetchAsync(){
+            contenido= await fetch('https://api.openweathermap.org/data/2.5/weather?q=Mexico&appid=9a8110f3f0d700158ba53ff980c224e1&units=metric')
+            respuesta = await contenido.json();
+            //.then(response => response.json())
+            console.log(respuesta);
+            //.then(data => console.log("Peticion con Fetch", data));
+        }
+        
     </script>
 </body>
 </html>
