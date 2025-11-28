@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button id="btnPeticionFetch" onclick="cargarDatosFetch()">Enviar Peticion con Fetch</button>
+    <div id="Respuesta"></div>
+    
+    <script>
+        /*function cargarDatosFetch(){
+            fetch('https://api.openweathermap.org/data/2.5/weather?q=Mexico&appid=9a8110f3f0d700158ba53ff980c224e1&units=metric')
+            .then(response => response.json())
+            .then(data => console.log("Peticion con Fetch", data));
+        }*/
+       function cargarDatosFetch(){
+        $(document).ready(function(){
+            alert("Pagina Cargada")
+        })
+        $.ajax({
+            url: 'https://api.openweathermap.org/data/2.5/weather?q=Mexico&appid=9a8110f3f0d700158ba53ff980c224e1&units=metric',
+            method:'GET',
+            dataType:'json',
+            success:function(data){
+                console.log(data)
+            },
+            error: function(xhr,status,error){
+                console.error(error)
+            }
+        })
+       }
+    </script>
+</body>
+</html>
